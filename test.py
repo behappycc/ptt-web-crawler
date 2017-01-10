@@ -11,7 +11,7 @@ class TestCrawler(unittest.TestCase):
         jsondata = json.loads(crawler.parse(self.link, self.article_id, self.board))
         self.assertEqual(jsondata['article_id'], self.article_id)
         self.assertEqual(jsondata['board'], self.board)
-        self.assertEqual(jsondata['message_conut']['count'], 100)
+        self.assertEqual(jsondata['message_conut']['count'], 55)
     
     def test_parse_with_structured_push_contents(self):
         self.link = 'https://www.ptt.cc/bbs/Gossiping/M.1119222660.A.94E.html'
@@ -49,9 +49,9 @@ class TestCrawler(unittest.TestCase):
         with codecs.open(filename, 'r', encoding='utf-8') as f:
             data = json.load(f)
             # M.1127808641.A.C03.html is empty, so decrease 1 from 40 articles
-            self.assertEqual(len(data['articles']), 30)
+            self.assertEqual(len(data['articles']), 39)
         os.remove(filename)
-	
+    
     def test_getLastPage(self):
         boards = ['NBA', 'Gossiping', 'b994060work']  # b994060work for 6259fc0 (pull/6)
         for board in boards:
