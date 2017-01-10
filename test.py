@@ -49,7 +49,7 @@ class TestCrawler(unittest.TestCase):
         with codecs.open(filename, 'r', encoding='utf-8') as f:
             data = json.load(f)
             # M.1127808641.A.C03.html is empty, so decrease 1 from 40 articles
-            self.assertEqual(len(data['articles']), 39)
+            self.assertEqual(len(data['articles']), 38)
         os.remove(filename)
 	
     def test_getLastPage(self):
